@@ -5,19 +5,64 @@ var firstScriptTag = document.getElementsByTagName("script")[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
+var heroPlayer;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("player", {
     height: "360",
     width: "640",
-    videoId: "z4pWvWYcb_I",
+    videoId: "aqa9h-nL-TA",
     playerVars: {
+      // playsinline: 1,
+      // loop: 1,
+      // playlist: "aqa9h-nL-TA", //上と同じ動画ID_リピートするには入力必須
+      // rel: 0, // 関連動画の非表示
+      // controls: 0, // 動画プレーヤーのコントロール非表示
+      // modestbranding: 1,
+      // showinfo: 0,
       playsinline: 1,
-      loop: 1,
-      playlist: "z4pWvWYcb_I", //上と同じ動画ID_リピートするには入力必須
-      rel: 0, // 関連動画の非表示
-      controls: 0, // 動画プレーヤーのコントロール非表示
-      modestbranding: 1,
-      showinfo: 0,
+      autoplay: 1, // 自動再生
+      loop: 1, // ループ有効
+      listType: "playlist", //リスト再生（ループ再生に必要）
+      playlist: "aqa9h-nL-TA", // 再生する動画リスト（ループ再生に必要）
+      controls: 0, // コントロールバー非表示
+      enablejsapi: 1, //JavaScript API 有効
+      modestbranding: 1, //yutubeロゴの非表示
+      iv_load_policy: 3, //動画アノテーションを表示しない
+      disablekb: 1, //キーボード操作OFF
+      showinfo: 0, //動画の再生が始まる前に動画のタイトルなどの情報を表示しない
+      rel: 0, //再生終了時に関連動画を表示しない
+    },
+    events: {
+      onReady: onPlayerReady,
+      onStateChange: onPlayerStateChange,
+    },
+  });
+
+  heroPlayer = new YT.Player("hero_player", {
+    height: "360",
+    width: "640",
+    videoId: "bhnOKRrTcd4",
+    playerVars: {
+      // playsinline: 1,
+      // loop: 1,
+      // playlist: "bhnOKRrTcd4", //上と同じ動画ID_リピートするには入力必須
+      // rel: 0, // 関連動画の非表示
+      // controls: 0, // 動画プレーヤーのコントロール非表示
+      // modestbranding: 1,
+      // showinfo: 0,
+
+      playsinline: 1,
+      autoplay: 1, // 自動再生
+      loop: 1, // ループ有効
+      listType: "playlist", //リスト再生（ループ再生に必要）
+      playlist: "bhnOKRrTcd4", // 再生する動画リスト（ループ再生に必要）
+      controls: 0, // コントロールバー非表示
+      enablejsapi: 1, //JavaScript API 有効
+      modestbranding: 1, //yutubeロゴの非表示
+      iv_load_policy: 3, //動画アノテーションを表示しない
+      disablekb: 1, //キーボード操作OFF
+      showinfo: 0, //動画の再生が始まる前に動画のタイトルなどの情報を表示しない
+      rel: 0, //再生終了時に関連動画を表示しない
     },
     events: {
       onReady: onPlayerReady,
