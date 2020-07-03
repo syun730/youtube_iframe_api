@@ -132,6 +132,19 @@ function systemTab() {
   });
 }
 
+// モーダル
+function modal() {
+  var $trigger = $("[data-js-modal-trigger]");
+  var $target = $("[data-js-modal]");
+  var $modalBg = $("[data-js-modal-bg]");
+  $trigger.on("click", function () {
+    $target.fadeToggle();
+  });
+  $modalBg.on("click", function () {
+    $target.fadeToggle();
+  });
+}
+
 $(function () {
   resizeMovie();
   $(window).resize(resizeMovie);
@@ -139,4 +152,5 @@ $(function () {
   characterTab();
   characterAudio();
   systemTab();
+  modal();
 });
