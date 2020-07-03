@@ -52,3 +52,23 @@ body {
   top: 0;
   left: 0;
 }
+
+.character {
+  background: #fff;
+}
+.characterBlock__item {
+  display: none;
+}
+.characterBlock__item.active {
+  display: block;
+}
+
+.system {
+  background: #fff;
+}
+.systemBlock__item {
+  display: none;
+}
+.systemBlock__item.active {
+  display: block;
+}
